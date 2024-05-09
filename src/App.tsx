@@ -49,7 +49,7 @@ return (
             Learn Chakra
           </Link>
 
-          <Button width={'300px'} h={'100px'} bgColor={'blue'} onClick={handleBtnClick} />
+          <Button width={'300px'} h={'100px'} bgColor={'blue'} onClick={handleBtnClick} content="ASK GPT" />
         </VStack>
       </Grid>
     </Box>
