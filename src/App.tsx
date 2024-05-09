@@ -1,18 +1,35 @@
-import * as React from "react"
 import {
-  ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
+  Button,
+  ChakraProvider,
   Code,
   Grid,
+  Link,
+  Text,
+  VStack,
   theme,
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import { Logo } from "./Logo"
+import { getTextCompletion } from "./yandex"
 
-export const App = () => (
+export const App = () => {
+
+const options = {
+  messages: [
+    {
+      role: 'user',
+      text: 'Столица России?'  
+    }
+  ]
+}
+
+const handleBtnClick = () => {
+  getTextCompletion(options)
+}
+   
+
+return (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
       <Grid minH="100vh" p={3}>
@@ -31,8 +48,12 @@ export const App = () => (
           >
             Learn Chakra
           </Link>
+
+          <Button width={'300px'} h={'100px'} bgColor={'blue'} onClick={handleBtnClick} />
         </VStack>
       </Grid>
     </Box>
   </ChakraProvider>
 )
+
+}
